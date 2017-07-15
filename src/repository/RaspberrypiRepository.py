@@ -82,7 +82,7 @@ class RaspberrypiRepository:
 
         shortestPullUp = min(lengths)
         longestPullUp = max(lengths)
-        median = (longestPullUp+shortestPullUp) / 2
+        median = (longestPullUp + shortestPullUp) / 2
         for length in lengths:
             bit = 0
             if length > median:
@@ -94,14 +94,15 @@ class RaspberrypiRepository:
                 byte = byte | 1
             else:
                 byte = byte | 0
-            if ((i+1)%8 == 0):
+            if (i+1)%8 == 0:
                 bytes.append(byte)
                 byte = 0
         checksum = bytes[0] + bytes[1] + bytes[2] + bytes[3] & 0xFF
         if bytes[4] != checksum:
             temperature = Temperature(temperature='Data not good, skip', humidity='Data not good, skip')
+            return temperature
 
-        return Temperature(temperature = bytes[2], humidity = bytes[0])
+        return Temperature(temperature = str(bytes[2]) + ',' + str(bytes[3]), humidity = str(bytes[0]) + ',' + str(bytes[1]))
 
     def destroy(self):
         GPIO.cleanup()
