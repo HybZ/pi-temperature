@@ -1,5 +1,7 @@
 # pi-temperature
 
+[![Build Status](https://travis-ci.org/HybZ/pi-temperature.svg?branch=master)](https://travis-ci.org/HybZ/pi-temperature)
+
 ## Introduction
 This simple Python3 application reads the temperature using a Raspberry Pi model 3 and a DHT11 module.
 It uses Flask as simple web server.
