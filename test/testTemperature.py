@@ -1,5 +1,4 @@
 from flask import Flask
-import os
 import sys
 sys.path.append('../src')
 from controller.TemperatureController import temperatureBlueprint

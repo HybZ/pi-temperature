@@ -6,5 +6,5 @@ python:
 install:
   - pip install -r requirements.txt
 
-script: pytest test/testTemperature.py
+script: cd test & pytest testTemperature.py
 
